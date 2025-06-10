@@ -8,23 +8,16 @@
  * @author Adm
  */
 
-import java.sql.PreparedStatement;
-import java.sql.Connection;
-import javax.swing.JOptionPane;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 
 public class ProdutosDAO {
     
-    Connection conn;
-    PreparedStatement prep;
-    ResultSet resultset;
     ArrayList<ProdutosDTO> listagem = new ArrayList<>();
     
     public boolean cadastrarProduto (ProdutosDTO produto){
         
-        conn = new conectaDAO().connectDB();
+        new conectaDAO().connectDB();
         listagem.add(produto); // Adiciona o produto à lista
     System.out.println("Produto cadastrado: " + produto.getNome());
         
@@ -43,7 +36,6 @@ public class ProdutosDAO {
         ProdutosDTO p5 = new ProdutosDTO (5,"PlayStation4",4000 , "A venda");
         ProdutosDTO p6 = new ProdutosDTO (4,"Atari",900 , "A venda");
         ProdutosDTO p7 = new ProdutosDTO (3,"SuperNintendo",2500 , "A venda");
-        ProdutosDTO p8 = new ProdutosDTO (2,"PlayStation5",5000,"A venda");
         
         
         listagem.add(p);
